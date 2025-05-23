@@ -173,6 +173,7 @@ public class CreateCandidateCommandHandlerTests
             Guid.NewGuid(),
             "12345",
             "calle falsa 123",
+            1,
             new List<CreateExperienceCommand> { experience }
         );
     }
