@@ -1,0 +1,84 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36109.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebClient", "WebClient", "{1F1EF55A-3996-4E31-A0B4-1959CCF0327E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{800574B0-70AE-4B50-9566-70B3C2389D4A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{6B7BE0A9-A6A0-4521-95A9-1FC333F167B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecruitmentManager.API", "RecruitmentManager.API\RecruitmentManager.API.csproj", "{D4881C69-F9D1-4D67-9F89-69FF981EE482}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecruitmentManager.Domain", "RecruitmentManager.Domain\RecruitmentManager.Domain.csproj", "{C92D1AB9-B9D2-4225-A4A6-0396CA9D1C0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecruitmentManager.Infrastructure", "RecruitmentManager.Infrastructure\RecruitmentManager.Infrastructure.csproj", "{3C3FB77A-7906-4AFE-B1E2-1998E24DA59E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecruitmentManager.Application", "RecruitmentManager.Application\RecruitmentManager.Application.csproj", "{22739392-2E66-452D-AAB7-12252E0B2B60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecruitmentManager.Shared", "RecruitmentManager.Shared\RecruitmentManager.Shared.csproj", "{1359E2A4-FFEE-465C-82B1-BA174B231681}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecruitmentManager.Web", "RecruitmentManager.Web\RecruitmentManager.Web.csproj", "{41F9E4A1-49A3-4EA0-86EE-5395F5019DE0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D826022F-0A54-4314-8128-F27C8DE53A29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecruitmentManager.Tests", "RecruitmentManager.Tests\RecruitmentManager.Tests.csproj", "{10800E08-9723-4D97-B9CD-306AEFFFE16B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D4881C69-F9D1-4D67-9F89-69FF981EE482}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4881C69-F9D1-4D67-9F89-69FF981EE482}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4881C69-F9D1-4D67-9F89-69FF981EE482}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4881C69-F9D1-4D67-9F89-69FF981EE482}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C92D1AB9-B9D2-4225-A4A6-0396CA9D1C0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C92D1AB9-B9D2-4225-A4A6-0396CA9D1C0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C92D1AB9-B9D2-4225-A4A6-0396CA9D1C0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C92D1AB9-B9D2-4225-A4A6-0396CA9D1C0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C3FB77A-7906-4AFE-B1E2-1998E24DA59E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C3FB77A-7906-4AFE-B1E2-1998E24DA59E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C3FB77A-7906-4AFE-B1E2-1998E24DA59E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C3FB77A-7906-4AFE-B1E2-1998E24DA59E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22739392-2E66-452D-AAB7-12252E0B2B60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22739392-2E66-452D-AAB7-12252E0B2B60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22739392-2E66-452D-AAB7-12252E0B2B60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22739392-2E66-452D-AAB7-12252E0B2B60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1359E2A4-FFEE-465C-82B1-BA174B231681}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1359E2A4-FFEE-465C-82B1-BA174B231681}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1359E2A4-FFEE-465C-82B1-BA174B231681}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1359E2A4-FFEE-465C-82B1-BA174B231681}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41F9E4A1-49A3-4EA0-86EE-5395F5019DE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41F9E4A1-49A3-4EA0-86EE-5395F5019DE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41F9E4A1-49A3-4EA0-86EE-5395F5019DE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41F9E4A1-49A3-4EA0-86EE-5395F5019DE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10800E08-9723-4D97-B9CD-306AEFFFE16B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10800E08-9723-4D97-B9CD-306AEFFFE16B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10800E08-9723-4D97-B9CD-306AEFFFE16B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10800E08-9723-4D97-B9CD-306AEFFFE16B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1F1EF55A-3996-4E31-A0B4-1959CCF0327E} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{800574B0-70AE-4B50-9566-70B3C2389D4A} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{6B7BE0A9-A6A0-4521-95A9-1FC333F167B2} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{D4881C69-F9D1-4D67-9F89-69FF981EE482} = {6B7BE0A9-A6A0-4521-95A9-1FC333F167B2}
+		{C92D1AB9-B9D2-4225-A4A6-0396CA9D1C0A} = {6B7BE0A9-A6A0-4521-95A9-1FC333F167B2}
+		{3C3FB77A-7906-4AFE-B1E2-1998E24DA59E} = {6B7BE0A9-A6A0-4521-95A9-1FC333F167B2}
+		{22739392-2E66-452D-AAB7-12252E0B2B60} = {6B7BE0A9-A6A0-4521-95A9-1FC333F167B2}
+		{1359E2A4-FFEE-465C-82B1-BA174B231681} = {800574B0-70AE-4B50-9566-70B3C2389D4A}
+		{41F9E4A1-49A3-4EA0-86EE-5395F5019DE0} = {1F1EF55A-3996-4E31-A0B4-1959CCF0327E}
+		{D826022F-0A54-4314-8128-F27C8DE53A29} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{10800E08-9723-4D97-B9CD-306AEFFFE16B} = {D826022F-0A54-4314-8128-F27C8DE53A29}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {232F9FAD-0745-4AF0-92BE-8726E12A9DAA}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,330 @@
+﻿@model RecruitmentManager.Web.ViewModels.EditCandidateViewModel
+
+@{
+    ViewData["Title"] = "Edit Candidate";
+}
+
+<h1>Edit Candidate</h1>
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5>Personal Information</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="FirstName" class="form-label"></label>
+                                <input asp-for="FirstName" class="form-control" />
+                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="SurName" class="form-label"></label>
+                                <input asp-for="SurName" class="form-control" />
+                                <span asp-validation-for="SurName" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="Email" class="form-label"></label>
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="PhoneNumber" class="form-label"></label>
+                                <input asp-for="PhoneNumber" class="form-control" />
+                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="DateOfBirth" class="form-label"></label>
+                                <input asp-for="DateOfBirth" class="form-control" type="date" />
+                                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="StateId" class="form-label"></label>
+                                <select asp-for="StateId" class="form-select"
+                                        asp-items="@(new SelectList(Model.States, "Id", "Name", Model.StateId))">
+                                    <option value="">Select a state</option>
+                                </select>
+                                <span asp-validation-for="StateId" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5>Address</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mb-3">
+                                <label asp-for="Street" class="form-label"></label>
+                                <input asp-for="Street" class="form-control" />
+                                <span asp-validation-for="Street" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="CountryId" class="form-label"></label>
+                                <select asp-for="CountryId" id="countrySelect" class="form-select"
+                                        asp-items="@(new SelectList(Model.Countries, "Id", "Name", Model.CountryId))">
+                                    <option value="">Select a country</option>
+                                </select>
+                                <span asp-validation-for="CountryId" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="CityId" class="form-label"></label>
+                                <select asp-for="CityId" id="citySelect" class="form-select"
+                                        asp-items="@(Model.Cities != null ? new SelectList(Model.Cities, "Id", "Name", Model.CityId) : null)">
+                                    <option value="">Select a city</option>
+                                </select>
+                                <span asp-validation-for="CityId" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="ZipCode" class="form-label"></label>
+                                <input asp-for="ZipCode" class="form-control" />
+                                <span asp-validation-for="ZipCode" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5>Work Experience</h5>
+                    <button type="button" class="btn btn-success" id="addExperience">Add Experience</button>
+                </div>
+                <div class="card-body" id="experiencesContainer">
+                    @for (int i = 0; i < Model.Experiences.Count; i++)
+                    {
+                        <div class="experience-item border rounded p-3 mb-3">
+                            <div class="d-flex justify-content-between mb-2">
+                                <h6>Experience #@(i + 1)</h6>
+                                <button type="button" class="btn btn-danger btn-sm remove-experience">Remove</button>
+                            </div>
+
+                            <input type="hidden" asp-for="Experiences[i].Id" />
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label asp-for="Experiences[i].Company" class="form-label"></label>
+                                        <input asp-for="Experiences[i].Company" class="form-control" />
+                                        <span asp-validation-for="Experiences[i].Company" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label asp-for="Experiences[i].Job" class="form-label"></label>
+                                        <input asp-for="Experiences[i].Job" class="form-control" />
+                                        <span asp-validation-for="Experiences[i].Job" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="mb-3">
+                                        <label asp-for="Experiences[i].Description" class="form-label"></label>
+                                        <textarea asp-for="Experiences[i].Description" class="form-control" rows="2"></textarea>
+                                        <span asp-validation-for="Experiences[i].Description" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label asp-for="Experiences[i].StartDate" class="form-label"></label>
+                                        <input asp-for="Experiences[i].StartDate" class="form-control" type="date" />
+                                        <span asp-validation-for="Experiences[i].StartDate" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label asp-for="Experiences[i].EndDate" class="form-label"></label>
+                                        <input asp-for="Experiences[i].EndDate" class="form-control" type="date" />
+                                        <span asp-validation-for="Experiences[i].EndDate" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label asp-for="Experiences[i].Salary" class="form-label"></label>
+                                        <input asp-for="Experiences[i].Salary" class="form-control" type="number" step="0.01" />
+                                        <span asp-validation-for="Experiences[i].Salary" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label asp-for="Experiences[i].Currency" class="form-label"></label>
+                                        <input asp-for="Experiences[i].Currency" class="form-control" />
+                                        <span asp-validation-for="Experiences[i].Currency" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="form-group mb-4">
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const experiencesContainer = document.getElementById('experiencesContainer');
+            const addExperienceBtn = document.getElementById('addExperience');
+
+            addExperienceBtn.addEventListener('click', function () {
+                const index = document.querySelectorAll('.experience-item').length;
+
+                const experienceHtml = `
+                <div class="experience-item border rounded p-3 mb-3">
+                    <div class="d-flex justify-content-between mb-2">
+                        <h6>Experience #${index + 1}</h6>
+                        <button type="button" class="btn btn-danger btn-sm remove-experience">Remove</button>
+                    </div>
+
+                    <input type="hidden" name="Experiences[${index}].Id" value="" />
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label" for="Experiences_${index}__Company">Company</label>
+                                <input class="form-control" type="text" name="Experiences[${index}].Company" id="Experiences_${index}__Company" required />
+                                <span class="text-danger field-validation-valid" data-valmsg-for="Experiences[${index}].Company" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label" for="Experiences_${index}__Job">Job</label>
+                                <input class="form-control" type="text" name="Experiences[${index}].Job" id="Experiences_${index}__Job" required />
+                                <span class="text-danger field-validation-valid" data-valmsg-for="Experiences[${index}].Job" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mb-3">
+                                <label class="form-label" for="Experiences_${index}__Description">Description</label>
+                                <textarea class="form-control" rows="2" name="Experiences[${index}].Description" id="Experiences_${index}__Description" required></textarea>
+                                <span class="text-danger field-validation-valid" data-valmsg-for="Experiences[${index}].Description" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label" for="Experiences_${index}__StartDate">Start Date</label>
+                                <input class="form-control" type="date" name="Experiences[${index}].StartDate" id="Experiences_${index}__StartDate" required />
+                                <span class="text-danger field-validation-valid" data-valmsg-for="Experiences[${index}].StartDate" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label" for="Experiences_${index}__EndDate">End Date</label>
+                                <input class="form-control" type="date" name="Experiences[${index}].EndDate" id="Experiences_${index}__EndDate" />
+                                <span class="text-danger field-validation-valid" data-valmsg-for="Experiences[${index}].EndDate" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label" for="Experiences_${index}__Salary">Salary</label>
+                                <input class="form-control" type="number" step="0.01" name="Experiences[${index}].Salary" id="Experiences_${index}__Salary" required />
+                                <span class="text-danger field-validation-valid" data-valmsg-for="Experiences[${index}].Salary" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label" for="Experiences_${index}__Currency">Currency</label>
+                                <input class="form-control" type="text" name="Experiences[${index}].Currency" id="Experiences_${index}__Currency" required />
+                                <span class="text-danger field-validation-valid" data-valmsg-for="Experiences[${index}].Currency" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                `;
+
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = experienceHtml.trim();
+                experiencesContainer.appendChild(tempDiv.firstElementChild);
+
+                if (typeof $.validator !== 'undefined') {
+                    $('form').data('validator', null);
+                    $.validator.unobtrusive.parse('form');
+                }
+            });
+
+            experiencesContainer.addEventListener('click', function (e) {
+                if (e.target.classList.contains('remove-experience')) {
+                    const experienceItem = e.target.closest('.experience-item');
+                    experienceItem.remove();
+
+                    document.querySelectorAll('.experience-item').forEach((item, idx) => {
+                        item.querySelector('h6').textContent = `Experience #${idx + 1}`;
+                    });
+                }
+            });
+
+            document.querySelector('form').addEventListener('submit', function(e) {
+                document.querySelectorAll('.experience-item input[name$=".Id"]').forEach(field => {
+                    if (field.value === '' || field.value === 'null') {
+                        field.value = '';
+                    }
+                });
+            });
+        });
+    </script>
+}
